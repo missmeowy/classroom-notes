@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stardust • Classroom AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <h2>✧ Stardust</h2>
+            </div>
+            <div class="nav">
+                <button class="nav-btn active" data-tab="transcript">Live Transcription</button>
+                <button class="nav-btn" data-tab="notes">Detailed Notes</button>
+                <button class="nav-btn" data-tab="summary">Summary</button>
+                <button class="nav-btn" data-tab="mindmap">Mind Map</button>
+                <button class="nav-btn" data-tab="diagram">Diagram</button>
+            </div>
+            
+            <div class="connect-section">
+                <button id="connectBtn" class="connect-btn">
+                    <i class="fas fa-link"></i> Connect Smart Device
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header>
+                <button id="recordBtn" class="record-btn">
+                    <i class="fas fa-microphone"></i>
+                    <span id="recordText">Start Recording</span>
+                </button>
+                <div id="status" class="status">Ready</div>
+            </header>
+
+            <!-- Tab Contents -->
+            <div id="transcript" class="tab-content active">
+                <h2>Live Transcription</h2>
+                <div id="transcriptBox" class="content-box"></div>
+            </div>
+            <!-- Detailed Notes -->
+            <div id="notes" class="tab">
+                  <h2>Detailed Notes</h2>
+                  <div id="notesBox" class="box"></div>
+            </div>
+
+            <div id="summary" class="tab-content">
+                <h2>Summary</h2>
+                <div id="summaryBox" class="content-box"></div>
+            </div>
+
+            <div id="mindmap" class="tab-content">
+                <h2>Mind Map</h2>
+                <div id="mindmapBox" class="content-box"></div>
+            </div>
+
+            <div id="diagram" class="tab-content">
+                <h2>Diagram</h2>
+                <div id="diagramBox" class="content-box"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

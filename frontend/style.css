@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: radial-gradient(circle at 50% 30%, #1a1a3a 0%, #000011 70%, #000000 100%);
+    color: #e0e0ff;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Stardust Background */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: 
+        radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px),
+        radial-gradient(circle, rgba(180,200,255,0.06) 1px, transparent 1px);
+    background-size: 80px 80px, 130px 130px;
+    animation: stardustMove 140s linear infinite;
+    pointer-events: none;
+    z-index: -2;
+}
+
+@keyframes stardustMove {
+    0% { background-position: 0 0, 30px 50px; }
+    100% { background-position: 250px 400px, 280px 350px; }
+}
+
+/* App Container */
+.app {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    background: rgba(15, 15, 45, 0.95);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(140, 140, 255, 0.2);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 6px 0 35px rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+
+.logo h2 {
+    font-size: 30px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #c4b5ff, #7dd3fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 40px;
+}
+
+/* Nav Buttons */
+.nav-btn {
+    width: 100%;
+    padding: 16px 20px;
+    margin: 8px 0;
+    background: rgba(35, 35, 75, 0.7);
+    border: none;
+    border-radius: 14px;
+    color: #c8c8ff;
+    font-size: 15.5px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-align: left;
+}
+
+.nav-btn:hover {
+    background: rgba(70, 70, 130, 0.8);
+    transform: translateX(8px);
+}
+
+.nav-btn.active {
+    background: linear-gradient(145deg, #6366f1, #a855f7);
+    color: white;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+}
+
+/* Connect Button */
+.connect-btn {
+    margin-top: auto;
+    padding: 12px 18px;
+    background: rgba(30, 30, 70, 0.8);
+    border: 1px solid rgba(140, 140, 255, 0.3);
+    border-radius: 12px;
+    color: #a5b4fc;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.connect-btn:hover {
+    background: rgba(80, 80, 160, 0.8);
+}
+
+/* Main Area */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    overflow: hidden;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+/* Record Button */
+.record-btn {
+    padding: 14px 32px;
+    background: linear-gradient(145deg, #f43f5e, #e11d48);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(244, 63, 94, 0.45);
+    transition: all 0.3s;
+}
+
+.record-btn:hover {
+    transform: scale(1.05);
+}
+
+.record-btn.recording {
+    background: linear-gradient(145deg, #22c55e, #16a34a);
+    animation: pulse 2s infinite;
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+    flex: 1;
+    flex-direction: column;
+}
+
+.tab-content.active {
+    display: flex;
+}
+
+.content-box {
+    flex: 1;
+    background: rgba(20, 20, 50, 0.75);
+    border-radius: 18px;
+    padding: 28px;
+    border: 1px solid rgba(140, 140, 255, 0.15);
+    box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    backdrop-filter: blur(10px);
+}
+
+/* Scrollbar */
+.content-box::-webkit-scrollbar {
+    width: 7px;
+}
+.content-box::-webkit-scrollbar-thumb {
+    background: linear-gradient(#818cf8, #60a5fa);
+    border-radius: 20px;
+}
+
+/* Status */
+.status {
+    padding: 8px 22px;
+    background: rgba(30, 30, 70, 0.7);
+    border-radius: 30px;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .sidebar { width: 240px; }
+}
